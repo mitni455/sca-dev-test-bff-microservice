@@ -1,0 +1,30 @@
+version: '3.2'
+
+services:
+    microservice-sca:
+        build:
+            context: ./microservice-sca
+            dockerfile: Dockerfile.dev
+        command:
+            "yarn run start:dev"
+        environment:
+            PORT: 8080
+            DATABASE_POSTGRES_HOST: "postgresql"
+            DATABASE_POSTGRES_PORT: 5432
+            DATABASE_POSTGRES_USERNAME: "kitset"
+            DATABASE_POSTGRES_PASSWORD: "pos092500"
+            DATABASE_POSTGRES_DBNAME: "playbook"
+            DATABASE_POSTGRES_CONNECTION_NAME: "DATABASE_POSTGRES_CONNECTION"
+            DATABASE_POSTGRES_SYNC: "true" # -- Set to false for production
+            DATABASE_MYSQL_HOST: "mysql"
+            DATABASE_MYSQL_PORT: 3306
+            DATABASE_MYSQL_USERNAME: "root"
+            DATABASE_MYSQL_PASSWORD: "mys092500"
+            DATABASE_MYSQL_DBNAME: "playbook_mysql"
+            DATABASE_MYSQL_CONNECTION_NAME: "DATABASE_MYSQL_CONNECTION"
+            DATABASE_MYSQL_SYNC: "true"  # -- Set to false for production
+            DATABASE_CONNECTION_TO_USE: "DATABASE_POSTGRES_CONNECTION"
+        volumes:
+            - ./microservice-sca/server:/app
+        ports:
+            - 3031:8080
