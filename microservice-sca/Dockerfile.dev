@@ -1,0 +1,10 @@
+FROM node:12-alpine
+
+# Installing nodemon for our servers that arn't using webpack
+RUN npm install -g nodemon
+
+WORKDIR /app
+
+EXPOSE 8080
+
+CMD ["yarn", "run", "start:dev"]
