@@ -16,6 +16,7 @@ async function bootstrap() {
     SwaggerUtil.buildSwagger(app);
 
     // -- Boot the app
-    await app.listen(process.env.PORT ? process.env.PORT : 8080)
+    console.log(`🦄 Running on port: ${process.env.PORT ? process.env.PORT : 3000}`);
+    await app.listen(process.env.PORT ? process.env.PORT : 3000)
 }
 bootstrap();
