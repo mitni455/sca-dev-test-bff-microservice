@@ -76,7 +76,9 @@ export class UserController {
             let result = await this.userService.subscribe(subscribeUserDto)
             return new SuccessResponse({
                 firstName: subscribeUserDto.firstName,
-                lastName: subscribeUserDto.lastName
+                lastName: subscribeUserDto.lastName,
+                email: subscribeUserDto.email,
+                mobilePhone: subscribeUserDto.mobilePhone,
             });
         } 
         catch (error) 
